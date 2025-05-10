@@ -16,6 +16,7 @@ class Node{
 
 public class linkedList {
 
+    // convert array into LL
     private static Node convertToLL(int arr[]){
         Node head = new Node(arr[0]);
         Node tail = head;
@@ -27,6 +28,17 @@ public class linkedList {
         return head;
     }
 
+    // traverse and print the complete LL
+    private static void print(Node head){
+        Node temp = head;
+        System.out.println("All elements of LL: ");
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+
+    // find the length of LL
     private static int lengthOfLL(Node head){
         int cnt = 0;
         Node temp = head;
@@ -37,6 +49,7 @@ public class linkedList {
         return cnt;
     }
 
+    // search for a value 'val' in the LL
     private static boolean ifPresent(Node head, int val){
         Node temp = head;
         while (temp != null) {
@@ -47,6 +60,15 @@ public class linkedList {
         }
         return false;
     }
+
+    // delete the head of LL
+    private static Node deleteHead(Node head){
+        if (head == null) {
+            return head;
+        }
+        head = head.next;
+        return head;
+    }
     
     public static void main(String[] args) {
 
@@ -56,24 +78,24 @@ public class linkedList {
         // Node y = new Node(arr[1]);
         // System.out.println(y);
 
-        // converting array into a linked list
+        // // converting array into a linked list
         Node head = convertToLL(arr);
-        System.out.println("Head of the linked list: " + head.data);
+        // System.out.println("Head of the linked list: " + head.data);
 
-        // Traversing a Linked List
-        Node temp = head;
-        System.out.println("All elements in linked list: ");
-        while (temp != null) {
-            System.out.print(temp.data + " ");
-            temp = temp.next;
-        }
+        // // Traversing a Linked List
+        // print(head);
         
-        // Return the length of LL
-        System.out.println();
-        System.out.println("Length of LL: " + lengthOfLL(head));
+        // // Return the length of LL
+        // System.out.println();
+        // System.out.println("Length of LL: " + lengthOfLL(head));
 
-        // Check for an element present in LL
-        System.out.println("Checking whether 5 is present in LL: " + ifPresent(head, 5));
+        // // Check for an element present in LL
+        // System.out.println("Checking whether 5 is present in LL: " + ifPresent(head, 5));
+
+        // Delete the head of the LL
+        System.out.println("Head of LL deleted");
+        head = deleteHead(head);
+        print(head);
     }
     
 }

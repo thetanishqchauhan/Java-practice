@@ -82,6 +82,29 @@ public class linkedList {
         temp.next = null;
         return head;
     }
+
+    // remove an element at k
+    private static Node removeK(Node head, int k){
+        if (head == null) {
+            return head;
+        }
+        int cnt = 0;
+        Node prev = null;
+        Node temp = head;
+        while (head.next != null) {
+            cnt++;
+            if (k == 1) {
+                head = head.next;
+                return head;
+            }
+            else if (cnt == k) {
+                prev.next = prev.next.next;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
     
     public static void main(String[] args) {
 

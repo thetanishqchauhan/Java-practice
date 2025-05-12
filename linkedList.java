@@ -69,6 +69,19 @@ public class linkedList {
         head = head.next;
         return head;
     }
+
+    // delete the tail of LL
+    private static Node deleteTail(Node head){
+        Node temp = head;
+        if (head == null || head.next == null) {
+            return null;
+        }
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
     
     public static void main(String[] args) {
 
@@ -92,10 +105,15 @@ public class linkedList {
         // // Check for an element present in LL
         // System.out.println("Checking whether 5 is present in LL: " + ifPresent(head, 5));
 
-        // Delete the head of the LL
-        System.out.println("Head of LL deleted");
-        head = deleteHead(head);
-        print(head);
+        // // Delete the head of the LL
+        // System.out.println("Head of LL deleted");
+        // head = deleteHead(head);
+        // print(head);
+
+        // Delete the tail of LL
+        System.out.println("Tail of LL deleted");
+        Node newLL = deleteTail(head);
+        print(newLL);
     }
     
 }

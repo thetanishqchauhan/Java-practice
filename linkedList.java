@@ -88,17 +88,18 @@ public class linkedList {
         if (head == null) {
             return head;
         }
+        if (k == 1) {
+            head = head.next;
+            return head;
+        }
         int cnt = 0;
         Node prev = null;
         Node temp = head;
-        while (head.next != null) {
+        while (temp != null) {
             cnt++;
-            if (k == 1) {
-                head = head.next;
-                return head;
-            }
-            else if (cnt == k) {
+            if (cnt == k) {
                 prev.next = prev.next.next;
+                break;
             }
             prev = temp;
             temp = temp.next;
@@ -133,10 +134,15 @@ public class linkedList {
         // head = deleteHead(head);
         // print(head);
 
-        // Delete the tail of LL
-        System.out.println("Tail of LL deleted");
-        Node newLL = deleteTail(head);
-        print(newLL);
+        // // Delete the tail of LL
+        // System.out.println("Tail of LL deleted");
+        // Node newLL = deleteTail(head);
+        // print(newLL);
+
+        // Delete any node k from the LL
+        System.out.println("kth node removed");
+        head = removeK(head, 2);
+        print(head);
     }
     
 }

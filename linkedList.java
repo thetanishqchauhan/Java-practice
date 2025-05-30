@@ -106,6 +106,27 @@ public class linkedList {
         }
         return head;
     }
+
+    // // remove an element with its value
+    // private static Node removeEl(Node head, int el){
+
+    //     if (head == null) {
+    //         return head;
+    //     }
+    //     if (head.data == el) {
+    //         head = head.next;
+    //         return head;
+    //     }
+    //     Node prev = null;
+    //     Node temp = head;
+    //     while (temp != null) {
+    //         if (condition) {
+                
+    //         }
+    //     }
+
+    //     return head;
+    // }
     
     public static void main(String[] args) {
 
@@ -139,10 +160,13 @@ public class linkedList {
         // Node newLL = deleteTail(head);
         // print(newLL);
 
-        // Delete any node k from the LL
-        System.out.println("kth node removed");
-        head = removeK(head, 2);
-        print(head);
+        // // Delete any node k from the LL
+        // System.out.println("kth node removed");
+        // head = removeK(head, 2);
+        // print(head);
+
+        // Delete any node depending on the value
+        
     }
     
 }

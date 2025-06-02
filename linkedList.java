@@ -4,8 +4,8 @@ class Node{
     
     // constructors
     Node(int data1, Node next1){
-        this.data = data1;      // In java, this keyword is used to access the pointers of that class
-        this.next = next1;      // reference to next node is stored in the next pointer
+        this.data = data1;      // In java, 'this' keyword is used to access the pointers of that class
+        this.next = next1;      // reference to next node is stored in the 'next' pointer
     }
     Node(int data1){
         this.data = data1;
@@ -107,26 +107,68 @@ public class linkedList {
         return head;
     }
 
-    // // remove an element with its value
-    // private static Node removeEl(Node head, int el){
+    // remove an element with its value
+    private static Node removeWithValue(Node head, int val){
+        if(head == null) return null;
+        if (head.data == val) {
+            head = head.next;
+            return head;
+        }
+        Node prev = null;
+        Node temp = head;
+        while (temp != null) {
+            if(temp.data == val){
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
 
-    //     if (head == null) {
-    //         return head;
-    //     }
-    //     if (head.data == el) {
-    //         head = head.next;
-    //         return head;
-    //     }
-    //     Node prev = null;
-    //     Node temp = head;
-    //     while (temp != null) {
-    //         if (condition) {
-                
-    //         }
-    //     }
+    private static Node insertNewHead(Node head, int headData){
+        if(head == null) return new Node(headData);
+        Node temp = new Node(headData);
+        temp.next = head;
+        return temp;
+    }
 
-    //     return head;
-    // }
+    private static Node insertNewTail(Node head, int tailData){
+        if(head == null) return new Node(tailData);
+        Node newTail = new Node(tailData);
+        Node temp = head;
+        while (temp.next != null) {
+            if(temp.next == null){
+                temp.next = newTail;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
+    private static Node insertNewEl(Node head, int k, int newNodeData){
+        Node newNode = new Node(newNodeData);
+        if(head == null) return newNode;
+        if (k == 1) {
+            newNode.next = head;
+            return newNode;
+        }
+        int cnt = 0;
+        Node prev = null;
+        Node temp = head;
+        while (temp != null) {
+            cnt++;
+            if (cnt == k) {
+                newNode.next = prev.next;
+                prev.next = newNode;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
     
     public static void main(String[] args) {
 
@@ -136,16 +178,16 @@ public class linkedList {
         // Node y = new Node(arr[1]);
         // System.out.println(y);
 
-        // // converting array into a linked list
+        // converting array into a linked list
         Node head = convertToLL(arr);
-        // System.out.println("Head of the linked list: " + head.data);
+        System.out.println("Head of the linked list: " + head.data);
 
-        // // Traversing a Linked List
-        // print(head);
+        // Traversing a Linked List
+        print(head);
         
-        // // Return the length of LL
-        // System.out.println();
-        // System.out.println("Length of LL: " + lengthOfLL(head));
+        // Return the length of LL
+        System.out.println();
+        System.out.println("Length of LL: " + lengthOfLL(head));
 
         // // Check for an element present in LL
         // System.out.println("Checking whether 5 is present in LL: " + ifPresent(head, 5));
@@ -165,7 +207,29 @@ public class linkedList {
         // head = removeK(head, 2);
         // print(head);
 
+        // Inserting a new head
+        System.out.println();
+        System.out.println("Inserting 5 as new head");
+        head = insertNewHead(head, 5);
+        print(head);
+
         // Delete any node depending on the value
+        System.out.println();
+        System.out.println("Deleting the node with val: 1");
+        head = removeWithValue(head, 1);
+        print(head);
+
+        // // Insering a new tail
+        // System.out.println();
+        // System.out.println("Inserting 1 as new tail");
+        // head = insertNewTail(head, 1);
+        // print(head);
+
+        // Inserting a new node
+        System.out.println();
+        System.out.println("Inserting a new node: 1 at 5th place");
+        head = insertNewEl(head, 5, 10);
+        print(head);
         
     }
     

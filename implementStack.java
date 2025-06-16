@@ -1,6 +1,7 @@
 public class implementStack {
 
     public static void main(String[] args) {
+        // // stack using array
         // stack s = new stack();
         // s.push(7);
         // s.push(8);
@@ -9,17 +10,20 @@ public class implementStack {
         // System.out.println("Value at top: " + s.top());
         // s.pop();
 
-        queue q = new queue();
-        q.push(6);
-        q.push(8);
-        q.push(10);
-        System.out.println("Deleted value: " + q.pop());
-        System.out.println("Value at top: " + q.top());
-        
+        // // queue using array
+        // queue q = new queue();
+        // q.push(6);
+        // q.push(8);
+        // q.push(10);
+        // System.out.println("Deleted value: " + q.pop());
+        // System.out.println("Value at top: " + q.top());
     }
     
 }
 
+// Implementation of Stack and queue using arrays
+
+// stack using array
 class stack{
     
     int arr[] = new int[10];
@@ -46,6 +50,7 @@ class stack{
     
 }
 
+// queue using array
 class queue {
     int size = 10;
     int arr[] = new int[size];
